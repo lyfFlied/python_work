@@ -126,5 +126,3 @@ if __name__ == "__main__":
     for doc in doc_term_matrix:
         cosion(test_vector_list,doc,i)
         i+=1
-    
-
