@@ -68,7 +68,6 @@ def tf(word_dict, participle_arr):
     participle_arr = []
     participle_arr = index_arr
     return participle_arr
-
 """
     计算词向量
 """
@@ -83,7 +82,6 @@ def tf_method(word_dict, participle_arr):
             vectorLists.append(participle_word.count(index))
         doc_term_matrix.append(vectorLists)
     # print("原始文本词向量是:%s" %(doc_term_matrix))
-    
 """
    计算df
    单个词向量在整个句子中的数量
@@ -126,7 +124,6 @@ def test_tf(word_dict, test_text):
          vector_list.append(test_list.count(index))
     # print("测试文本词向量是:%s" %(vector_list))   
     return vector_list
-
 def test_idf(test_text):
     my_idf_vector = []
     test_idf = []
@@ -145,7 +142,6 @@ def test_idf(test_text):
     for freq in my_idf_vector:
         test_idf.append(format(freq, 'f'))
     return test_idf
-
 """
     相似度计算
     @test_text 测试文本向量
@@ -174,14 +170,12 @@ def tfidfs(tf,idf):
         normalizer_tfidfs.append(word_tfidf)
     print("原始文本：",normalizer_tfidfs)
     return normalizer_tfidfs
-
 """
     归一化处理
 """
 def  l2_normalizer(vec): 
        denom = np.sum([el**2 for el in vec]) 
        return [(el / math.sqrt(denom)) for el in vec]
-
 if __name__ == "__main__":
     # 处理原始文本数据得到label
     word_dict, participle_arr = participle_to_label(doc_list)
