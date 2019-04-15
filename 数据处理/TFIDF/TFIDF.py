@@ -3,6 +3,7 @@
 # Power by GJT
 import numpy as np
 import math
+import wordcloud
 # 词向量
 label = ["me", "basketball", "Julie", "baseball", "likes", "loves", "Jane", "Linda", "He", "than", "more"]
 # 文本
@@ -75,8 +76,12 @@ def idf_method():
 def  l2_normalizer(vec): 
        denom = np.sum([el**2 for el in vec]) 
        return [(el / math.sqrt(denom)) for el in vec]
+"""
+    生成词云
+"""
+def get_word_cloud():
 
-    
+
 if __name__ == "__main__":
     tf = np.array(tf_method()).astype(int)
     idf = np.array(idf_method()).astype('float')

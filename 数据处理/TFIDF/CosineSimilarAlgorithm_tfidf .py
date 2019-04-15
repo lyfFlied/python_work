@@ -41,6 +41,7 @@ def participle_to_label(text):
     word_set = set(participle_arr[0]).union(participle_arr[1]).union(participle_arr[2])
     for word in word_set:
         label.append(word)
+    print("处理过后的label是%s"%label)
     # 将set转换为dict
     i = 0
     word_dict = dict()
@@ -188,10 +189,11 @@ if __name__ == "__main__":
     test_tf_list = np.array(test_tf(word_dict,test_text)).astype(int) 
     test_idf_list = np.array(test_idf(test_text)).astype('float')
     test_tfidfs = test_tf_list * test_idf_list
-     # 归一化处理
+     # 对测试文本的tfidfs进行归一化处理
     normalizer_test_tfidfs = []
     normalizer_test_tfidfs.append(l2_normalizer(test_tfidfs))
     print("测试文本：",normalizer_test_tfidfs)
+    # 依次比较每一句话和测试文本的相似程度
     i = 1
     for doc in normalizer_tfidfs:
         cosion(normalizer_test_tfidfs, doc, i)
