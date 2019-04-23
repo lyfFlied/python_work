@@ -10,8 +10,6 @@ path = os.getcwd() + "\\数据处理\\朴素贝叶斯分类\\sentence-cn.txt"
 # 加载自定义词典(便于识别CXK)
 jieba.load_userdict(os.getcwd() + "\\数据处理\\朴素贝叶斯分类\\newdict.txt")
 
-
-
 """
     读取数据
 """
@@ -73,9 +71,10 @@ if __name__ == "__main__":
     # 解决维度问题抛出的错误(这里需要对数据reshape一下)
     thisDoc = np.array(setOfWordVec(vocab_set, test_entry)).reshape(1,-1)
     print("测试数据%s" % thisDoc)
-    # 导入sklearn包 开始进行计算
-    from sklearn.naive_bayes import GaussianNB
+    # 导入sklearn包 开始进行计算(高斯朴素贝叶斯,多项分布朴素贝叶斯)
+    from sklearn.naive_bayes import GaussianNB,MultinomialNB
     clf = GaussianNB()
+    clf1 = MultinomialNB()
     y_pred = clf.fit(trainMat, classVec).predict(thisDoc)
     print("高斯朴素贝叶斯，样本总数： %d 错误样本数 : %d" % (len(trainMat),(classVec != y_pred).sum()))
     """
