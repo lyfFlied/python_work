@@ -84,3 +84,10 @@ def load_data():
     dog_image_list = __load_file(dog_train)
     return cat_image_list,dog_image_list
 
+def load_test_data():
+    # load_data_set()
+    cat_train = [os.path.join(cat_test_path, fname) for fname in os.listdir(cat_test_path)]
+    dog_train = [os.path.join(dog_test_path, fname) for fname in os.listdir(dog_test_path)]
+    cat_image_list = __load_file(cat_train)
+    dog_image_list = __load_file(dog_train)
+    return cat_image_list,dog_image_list
